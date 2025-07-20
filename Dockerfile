@@ -34,5 +34,5 @@ RUN php artisan migrate --force || true
 # Expose port 8000
 EXPOSE 8000
 
-# Start Laravel server using Render's dynamic $PORT
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+# Start PHP built-in server for Laravel public directory using Render's dynamic $PORT
+CMD php -S 0.0.0.0:$PORT -t public

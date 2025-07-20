@@ -25,6 +25,11 @@ RUN npm install && npm run build
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
+RUN chmod -R 775 storage bootstrap/cache
+
+# Run Laravel config cache and migrations to surface errors
+RUN php artisan config:cache
+RUN php artisan migrate --force || true
 
 # Expose port 8000
 EXPOSE 8000

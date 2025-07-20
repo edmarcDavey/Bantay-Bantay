@@ -5,9 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn() => 'Bantay Bantay is alive');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
